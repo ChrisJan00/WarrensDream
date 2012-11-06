@@ -732,9 +732,12 @@ static void NormalizeSlashes(char *str)
 static char *FindIWADFile(void)
 {
   int   i;
-  char  * iwad  = NULL;
+  char  * iwad  = I_FindFile("doom1.wad", ".wad");
 
   i = M_CheckParm("-iwad");
+  if (iwad && !i)
+      return iwad;
+
   if (i && (++i < myargc)) {
     iwad = I_FindFile(myargv[i], ".wad");
   } else {
