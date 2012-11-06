@@ -86,6 +86,8 @@
 #include "i_system.h"
 #include "r_demo.h"
 #include "r_fps.h"
+#include "lovenotes.h"
+#include "i_intro.h"
 
 #define SAVEGAMESIZE  0x20000
 #define SAVESTRINGSIZE  24
@@ -703,6 +705,9 @@ boolean G_Responder (event_t* ev)
   if (gamestate == GS_FINALE && F_Responder(ev))
     return true;  // finale ate the event
 
+  if (gamestate == GS_INTRO && In_Responder(ev))
+      return true; // intro also eats
+
   switch (ev->type)
     {
     case ev_keydown:
@@ -786,6 +791,9 @@ void G_Ticker (void)
     for (i=0 ; i<MAXPLAYERS ; i++)
       players[i].playerstate = PST_REBORN;
           G_DoLoadLevel ();
+          break;
+        case ga_introtext:
+          In_StartIntro ();
           break;
         case ga_newgame:
           G_DoNewGame ();
@@ -948,6 +956,10 @@ void G_Ticker (void)
 
     case GS_DEMOSCREEN:
       D_PageTicker ();
+      break;
+
+    case GS_INTRO:
+      In_Ticker();
       break;
     }
 }
@@ -1892,7 +1904,7 @@ void G_DeferedInitNew(skill_t skill, int episode, int map)
   d_skill = skill;
   d_episode = episode;
   d_map = map;
-  gameaction = ga_newgame;
+  gameaction = ga_introtext;
 }
 
 /* cph -
@@ -2093,6 +2105,7 @@ void G_DoNewGame (void)
 
   //jff 4/26/98 wake up the status bar in case were coming out of a DM demo
   ST_Start();
+  initLN();
 }
 
 // killough 4/10/98: New function to fix bug which caused Doom

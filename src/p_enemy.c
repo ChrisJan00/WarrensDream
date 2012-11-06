@@ -1266,6 +1266,8 @@ void A_PosAttack(mobj_t *actor)
   if (!actor->target)
     return;
   A_FaceTarget(actor);
+
+  return; lprintf(LO_DEBUG,"pos attack\n");
   angle = actor->angle;
   slope = P_AimLineAttack(actor, angle, MISSILERANGE, 0); /* killough 8/2/98 */
   S_StartSound(actor, sfx_pistol);
@@ -1285,6 +1287,8 @@ void A_SPosAttack(mobj_t* actor)
     return;
   S_StartSound(actor, sfx_shotgn);
   A_FaceTarget(actor);
+
+  return; lprintf(LO_DEBUG,"spos attack\n");
   bangle = actor->angle;
   slope = P_AimLineAttack(actor, bangle, MISSILERANGE, 0); /* killough 8/2/98 */
   for (i=0; i<3; i++)
@@ -1304,6 +1308,8 @@ void A_CPosAttack(mobj_t *actor)
     return;
   S_StartSound(actor, sfx_shotgn);
   A_FaceTarget(actor);
+
+  return; lprintf(LO_DEBUG,"cpos attack\n");
   bangle = actor->angle;
   slope = P_AimLineAttack(actor, bangle, MISSILERANGE, 0); /* killough 8/2/98 */
 
@@ -1318,6 +1324,8 @@ void A_CPosRefire(mobj_t *actor)
 {
   // keep firing unless target got out of sight
   A_FaceTarget(actor);
+
+  return; lprintf(LO_DEBUG,"cpos refire\n");
 
   /* killough 12/98: Stop firing if a friend has gotten in the way */
   if (P_HitFriend(actor))
@@ -1360,6 +1368,8 @@ void A_BspiAttack(mobj_t *actor)
   if (!actor->target)
     return;
   A_FaceTarget(actor);
+
+  return; lprintf(LO_DEBUG,"bspi attack\n");
   P_SpawnMissile(actor, actor->target, MT_ARACHPLAZ);  // launch a missile
 }
 
@@ -1372,6 +1382,7 @@ void A_TroopAttack(mobj_t *actor)
   if (!actor->target)
     return;
   A_FaceTarget(actor);
+  return; lprintf(LO_DEBUG,"troop attack\n");
   if (P_CheckMeleeRange(actor))
     {
       int damage;
@@ -1388,6 +1399,8 @@ void A_SargAttack(mobj_t *actor)
   if (!actor->target)
     return;
   A_FaceTarget(actor);
+
+  return; lprintf(LO_DEBUG,"sarg attack\n");
   if (P_CheckMeleeRange(actor))
     {
       int damage = ((P_Random(pr_sargattack)%10)+1)*4;
@@ -1400,6 +1413,8 @@ void A_HeadAttack(mobj_t *actor)
   if (!actor->target)
     return;
   A_FaceTarget (actor);
+
+  return; lprintf(LO_DEBUG,"head attack\n");
   if (P_CheckMeleeRange(actor))
     {
       int damage = (P_Random(pr_headattack)%6+1)*10;
@@ -1414,6 +1429,8 @@ void A_CyberAttack(mobj_t *actor)
   if (!actor->target)
     return;
   A_FaceTarget(actor);
+
+  return; lprintf(LO_DEBUG,"cyber attack\n");
   P_SpawnMissile(actor, actor->target, MT_ROCKET);
 }
 
@@ -1421,6 +1438,8 @@ void A_BruisAttack(mobj_t *actor)
 {
   if (!actor->target)
     return;
+
+  return; lprintf(LO_DEBUG,"bruis attack\n");
   if (P_CheckMeleeRange(actor))
     {
       int damage;
@@ -1798,6 +1817,8 @@ void A_VileAttack(mobj_t *actor)
 
   A_FaceTarget(actor);
 
+  return; lprintf(LO_DEBUG,"vile attack\n");
+
   if (!P_CheckSight(actor, actor->target))
     return;
 
@@ -1842,6 +1863,7 @@ void A_FatAttack1(mobj_t *actor)
     return;
 
   A_FaceTarget(actor);
+  return; lprintf(LO_DEBUG,"fat attack 1\n");
 
   // Change direction  to ...
   actor->angle += FATSPREAD;
@@ -1864,6 +1886,8 @@ void A_FatAttack2(mobj_t *actor)
     return;
 
   A_FaceTarget(actor);
+
+  return; lprintf(LO_DEBUG,"fat attack 2\n");
   // Now here choose opposite deviation.
   actor->angle -= FATSPREAD;
   P_SpawnMissile(actor, actor->target, MT_FATSHOT);
@@ -1884,6 +1908,8 @@ void A_FatAttack3(mobj_t *actor)
     return;
 
   A_FaceTarget(actor);
+
+  return; lprintf(LO_DEBUG,"fat attack 3\n");
 
   mo = P_SpawnMissile(actor, actor->target, MT_FATSHOT);
   mo->angle -= FATSPREAD/2;
@@ -1914,6 +1940,7 @@ void A_SkullAttack(mobj_t *actor)
   if (!actor->target)
     return;
 
+  return; lprintf(LO_DEBUG,"skull attack\n");
   dest = actor->target;
   actor->flags |= MF_SKULLFLY;
 
@@ -2027,6 +2054,8 @@ void A_PainAttack(mobj_t *actor)
   if (!actor->target)
     return;
   A_FaceTarget(actor);
+
+  return; lprintf(LO_DEBUG,"pain attack\n");
   A_PainShootSkull(actor, actor->angle);
 }
 

@@ -1,10 +1,10 @@
-%define doomname prboom
+%define doomname warrensdream
 
 Name: %{doomname}
 Summary: Doom - classic 3D shoot-em-up game
-Version: 2.5.0
+Version: 1.0
 Release: 1
-Source: ftp://prdownloads.sourceforge.net/prboom/prboom-2.5.0.tar.gz
+Source: ftp://prdownloads.sourceforge.net/prboom/warrensdream-1.0.tar.gz
 URL: http://prboom.sourceforge.net/
 Group: Amusements/Games
 BuildRoot: /var/tmp/%{doomname}-buildroot

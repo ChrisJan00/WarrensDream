@@ -1,6 +1,9 @@
 /* config.h.  Generated from config.h.in by configure.  */
 /* config.h.in.  Generated from configure.ac by autoheader.  */
 
+/* Define if building universal (internal helper macro) */
+/* #undef AC_APPLE_UNIVERSAL_BUILD */
+
 /* Uncomment this to exhaustively run memory checks while the game is running
    (this is EXTREMELY slow). */
 /* #undef CHECKHEAP */
@@ -46,7 +49,7 @@
 #define HAVE_LIBPNG 1
 
 /* Define to 1 if you have the `SDL_mixer' library (-lSDL_mixer). */
-/* #undef HAVE_LIBSDL_MIXER */
+#define HAVE_LIBSDL_MIXER 1
 
 /* Define if you have the SDL net library -lSDL_net */
 /* #undef HAVE_LIBSDL_NET */
@@ -110,7 +113,7 @@
 #define HIGHRES 1
 
 /* Define on targets supporting 386 assembly */
-#define I386_ASM 1
+/* #undef I386_ASM */
 
 /* Define this to see real-time memory allocation statistics, and enable extra
    debugging features */
@@ -123,22 +126,25 @@
 /* #undef MIN */
 
 /* Name of package */
-#define PACKAGE "prboom"
+#define PACKAGE "warrensdream"
 
 /* Define to the address where bug reports for this package should be sent. */
 #define PACKAGE_BUGREPORT ""
 
 /* Define to the full name of this package. */
-#define PACKAGE_NAME "prboom"
+#define PACKAGE_NAME "warrensdream"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "prboom 2.5.0"
+#define PACKAGE_STRING "warrensdream 1.0"
 
 /* Define to the one symbol short name of this package. */
-#define PACKAGE_TARNAME "prboom"
+#define PACKAGE_TARNAME "warrensdream"
+
+/* Define to the home page for this package. */
+#define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "2.5.0"
+#define PACKAGE_VERSION "1.0"
 
 /* Set to the attribute to apply to struct definitions to make them packed */
 #define PACKEDATTR __attribute__((packed))
@@ -171,14 +177,22 @@
 /* #undef USE_SDL_NET */
 
 /* Version number of package */
-#define VERSION "2.5.0"
+#define VERSION "1.0"
 
 /* Define if using the dmalloc debugging malloc package */
 /* #undef WITH_DMALLOC */
 
-/* Define to 1 if your processor stores words with the most significant byte
-   first (like Motorola and SPARC, unlike Intel and VAX). */
-/* #undef WORDS_BIGENDIAN */
+/* Define WORDS_BIGENDIAN to 1 if your processor stores words with the most
+   significant byte first (like Motorola and SPARC, unlike Intel). */
+#if defined AC_APPLE_UNIVERSAL_BUILD
+# if defined __BIG_ENDIAN__
+#  define WORDS_BIGENDIAN 1
+# endif
+#else
+# ifndef WORDS_BIGENDIAN
+/* #  undef WORDS_BIGENDIAN */
+# endif
+#endif
 
 /* Define this to perform id checks on zone blocks, to detect corrupted and
    illegally freed blocks */

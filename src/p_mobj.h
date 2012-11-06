@@ -353,6 +353,7 @@ typedef struct mobj_s
 
     fixed_t             pad; // cph - needed so I can get the size unambiguously on amd64
 
+    const char *message;
     // SEE WARNING ABOVE ABOUT POINTER FIELDS!!!
 } mobj_t;
 

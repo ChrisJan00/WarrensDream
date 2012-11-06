@@ -240,6 +240,9 @@ void D_Display (void)
     case GS_DEMOSCREEN:
       D_PageDrawer();
       break;
+    case GS_INTRO:
+        In_Drawer();
+        break;
     default:
       break;
     }

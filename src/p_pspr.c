@@ -43,6 +43,8 @@
 #include "sounds.h"
 #include "d_event.h"
 #include "r_demo.h"
+#include "lprintf.h"
+#include "lovenotes.h"
 
 #define LOWERSPEED   (FRACUNIT*6)
 #define RAISESPEED   (FRACUNIT*6)
@@ -270,13 +272,52 @@ boolean P_CheckAmmo(player_t *player)
 //
 // P_FireWeapon.
 //
+static void InteractWithMonster(player_t *player)
+{
+  angle_t angle;
+  int t, slope;
+
+  angle = player->mo->angle;
+
+  // killough 5/5/98: remove dependence on order of evaluation:
+  t = P_Random(pr_punchangle);
+  angle += (t - P_Random(pr_punchangle))<<18;
+
+  /* killough 8/2/98: make autoaiming prefer enemies */
+  if (!mbf_features ||
+      (slope = P_AimLineAttack(player->mo, angle, MELEERANGE, MF_FRIEND),
+       !linetarget))
+    slope = P_AimLineAttack(player->mo, angle, MELEERANGE, 0);
+
+  if (!linetarget || linetarget->type >= 30)
+  return;
+//  P_LineAttack(player->mo, angle, MELEERANGE, slope, linetarget->health);
+//  if (!linetarget)
+//    return;
+
+  if (!linetarget->message)
+      linetarget->message = getNextMessage();
+  player->message = linetarget->message;
+
+  //S_StartSound(player->mo, sfx_punch);
+
+  // turn to face target
+
+  player->mo->angle = R_PointToAngle2(player->mo->x, player->mo->y,
+                                      linetarget->x, linetarget->y);
+  R_SmoothPlaying_Reset(player); // e6y
+}
 
 static void P_FireWeapon(player_t *player)
 {
+    InteractWithMonster(player);
+  return;
+
   statenum_t newstate;
 
   if (!P_CheckAmmo(player))
     return;
+
 
   P_SetMobjState(player->mo, S_PLAY_ATK1);
   newstate = weaponinfo[player->readyweapon].atkstate;

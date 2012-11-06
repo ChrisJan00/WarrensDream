@@ -499,6 +499,10 @@ static boolean PIT_CheckThing(mobj_t *thing) // killough 3/26/98: make static
   if (thing == tmthing)
     return true;
 
+  // HACK: skip monsters
+  if (thing->type < 30)
+      return true;
+
   /* killough 11/98:
    *
    * TOUCHY flag, for mines or other objects which die on contact with solids.

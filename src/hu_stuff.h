@@ -48,8 +48,8 @@
 
 /*#define HU_MSGREFRESH   KEYD_ENTER                                phares */
 #define HU_MSGX         0
-#define HU_MSGY         0
-#define HU_MSGWIDTH     64      /* in characters */
+#define HU_MSGY         70
+#define HU_MSGWIDTH     128      /* in characters */
 #define HU_MSGHEIGHT    1       /* in lines */
 
 #define HU_MSGTIMEOUT   (4*TICRATE)
