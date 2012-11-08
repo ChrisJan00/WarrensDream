@@ -92,7 +92,7 @@ typedef struct
   char        endname[9];           //  if false, it is a flat
   char        startname[9];
   int         speed;
-} PACKEDATTR animdef_t; //jff 3/23/98 pack to read from memory
+}  animdef_t; //jff 3/23/98 pack to read from memory
 
 #if defined(__MWERKS__)
 #pragma options align=reset
@@ -149,6 +149,7 @@ void P_InitPicAnims (void)
   lastanim = anims;
   for (i=0 ; animdefs[i].istexture != -1 ; i++)
   {
+      break;
     // 1/11/98 killough -- removed limit by array-doubling
     if (lastanim >= anims + maxanims)
     {

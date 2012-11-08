@@ -68,7 +68,7 @@
 int main(void)
 {
   fprintf(stderr,
-      PACKAGE "-server: You must compile with networking enabled!\n");
+      "warrensdream" "-server: You must compile with networking enabled!\n");
   exit(1);
   return 1;
 }

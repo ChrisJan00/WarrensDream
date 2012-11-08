@@ -36,7 +36,7 @@
 #ifdef HAVE_CONFIG_H
 # include "config.h"
 #endif
-#ifdef HAVE_NETINET_IN_H
+#if (0)
 # include <netinet/in.h>
 #endif
 #include <stdlib.h>
@@ -48,9 +48,9 @@
 #include <fcntl.h>
 #include <string.h>
 
-#ifdef HAVE_NET
+#if (0)
 
-#include "SDL.h"
+#include "SDL/SDL.h"
 #include "SDL_net.h"
 
 #include "protocol.h"

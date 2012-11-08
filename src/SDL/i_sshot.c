@@ -38,19 +38,19 @@
 
 #include <stdlib.h>
 
-#include "SDL.h"
+#include "SDL/SDL.h"
 
 #ifdef HAVE_LIBPNG
 #include <png.h>
 #endif
 
-#include "doomstat.h"
-#include "doomdef.h"
-#include "doomtype.h"
-#include "v_video.h"
-#include "i_video.h"
-#include "z_zone.h"
-#include "lprintf.h"
+#include "../doomstat.h"
+#include "../doomdef.h"
+#include "../doomtype.h"
+#include "../v_video.h"
+#include "../i_video.h"
+#include "../z_zone.h"
+#include "../lprintf.h"
 
 #ifdef HAVE_LIBPNG
 

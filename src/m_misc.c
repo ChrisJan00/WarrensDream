@@ -317,7 +317,7 @@ default_t defaults[] =
    def_int,ss_none},
   {"screen_height",{&desired_screenheight},{480},200,MAX_SCREENHEIGHT,
    def_int,ss_none},
-  {"use_fullscreen",{&use_fullscreen},{0},0,1, /* proff 21/05/2000 */
+  {"use_fullscreen",{&use_fullscreen},{1},0,1, /* proff 21/05/2000 */
    def_bool,ss_none},
 #ifndef DISABLE_DOUBLEBUFFER
   {"use_doublebuffer",{&use_doublebuffer},{1},0,1,             // proff 2001-7-4

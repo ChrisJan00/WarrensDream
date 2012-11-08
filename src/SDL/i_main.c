@@ -41,7 +41,7 @@
 #include <unistd.h>
 #endif
 #ifdef USE_SDL
-#include "SDL.h"
+#include "SDL/SDL.h"
 #endif
 #include "doomdef.h"
 #include "m_argv.h"

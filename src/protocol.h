@@ -53,7 +53,7 @@ typedef struct {
   byte type;           /* Type of packet */
   byte reserved[2];	/* Was random in prboom <=2.2.4, now 0 */
   unsigned tic;        // Timestamp
-} PACKEDATTR packet_header_t;
+}  packet_header_t;
 
 static inline void packet_set(packet_header_t* p, enum packet_type_e t, unsigned long tic)
 { p->tic = doom_htonl(tic); p->type = t; p->reserved[0] = 0; p->reserved[1] = 0; }

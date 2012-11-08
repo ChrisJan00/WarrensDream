@@ -263,6 +263,10 @@ mobj_t **bodyque = 0;                   // phares 8/10/98
 static void G_DoSaveGame (boolean menu);
 static const byte* G_ReadDemoHeader(const byte* demo_p, size_t size, boolean failonerror);
 
+
+//int maketic;
+//int ticdup;
+
 //
 // G_BuildTiccmd
 // Builds a ticcmd from all of the available inputs
@@ -769,7 +773,7 @@ void G_Ticker (void)
   if (!demoplayback && mapcolor_plyr[consoleplayer] != mapcolor_me) {
     // Changed my multiplayer colour - Inform the whole game
     int net_cl = LONG(mapcolor_me);
-#ifdef HAVE_NET
+#if (0)
     D_NetSendMisc(nm_plcolour, sizeof(net_cl), &net_cl);
 #endif
     G_ChangedPlayerColour(consoleplayer, mapcolor_me);
@@ -1724,7 +1728,7 @@ void G_SaveGame(int slot, char *description)
   // CPhipps - store info in special_event
   special_event = BT_SPECIAL | (BTS_SAVEGAME & BT_SPECIALMASK) |
     ((slot << BTS_SAVESHIFT) & BTS_SAVEMASK);
-#ifdef HAVE_NET
+#if (0)
   D_NetSendMisc(nm_savegamename, strlen(savedescription)+1, savedescription);
 #endif
 }
@@ -2093,6 +2097,7 @@ void G_ReloadDefaults(void)
   demo_insurance = default_demo_insurance == 1;
 
   rngseed += I_GetRandomTimeSeed() + gametic; // CPhipps
+
 }
 
 void G_DoNewGame (void)

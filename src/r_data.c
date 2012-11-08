@@ -68,7 +68,7 @@ typedef struct
   short patch;
   short stepdir;         // unused in Doom but might be used in Phase 2 Boom
   short colormap;        // unused in Doom but might be used in Phase 2 Boom
-} PACKEDATTR mappatch_t;
+}  mappatch_t;
 
 
 typedef struct
@@ -80,7 +80,7 @@ typedef struct
   char       pad[4];       // unused in Doom but might be used in Boom Phase 2
   short      patchcount;
   mappatch_t patches[1];
-} PACKEDATTR maptexture_t;
+}  maptexture_t;
 
 // A maptexturedef_t describes a rectangular texture, which is composed
 // of one or more mappatch_t structures that arrange graphic patches.

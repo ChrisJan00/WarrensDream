@@ -38,7 +38,7 @@
 #include "config.h"
 #endif
 #ifdef USE_SDL
-#include "SDL.h"
+#include "SDL/SDL.h"
 #endif
 #include "doomstat.h"
 #include "d_net.h"
@@ -603,7 +603,7 @@ void R_RenderPlayerView (player_t* player)
   }
 
   // check for new console commands.
-#ifdef HAVE_NET
+#if (0)
   NetUpdate ();
 #endif
 
@@ -612,7 +612,7 @@ void R_RenderPlayerView (player_t* player)
   R_ResetColumnBuffer();
 
   // Check for new console commands.
-#ifdef HAVE_NET
+#if (0)
   NetUpdate ();
 #endif
 
@@ -620,7 +620,7 @@ void R_RenderPlayerView (player_t* player)
     R_DrawPlanes ();
 
   // Check for new console commands.
-#ifdef HAVE_NET
+#if (0)
   NetUpdate ();
 #endif
 
@@ -630,7 +630,7 @@ void R_RenderPlayerView (player_t* player)
   }
 
   // Check for new console commands.
-#ifdef HAVE_NET
+#if (0)
   NetUpdate ();
 #endif
 

@@ -299,7 +299,7 @@ void D_Display (void)
 
   // menus go directly to the screen
   M_Drawer();          // menu is drawn even on top of everything
-#ifdef HAVE_NET
+#if (0)
   NetUpdate();         // send out any new accumulation
 #else
   D_BuildNewTiccmds();
@@ -1352,6 +1352,11 @@ static void D_DoomMainSetup(void)
   G_ReloadDefaults();    // killough 3/4/98: set defaults just loaded.
   // jff 3/24/98 this sets startskill if it was -1
 
+  // Windows_defaults
+  desired_screenwidth = 1024;
+  desired_screenheight = 768;
+  use_fullscreen = 1;
+
   // Video stuff
   if ((p = M_CheckParm("-width")))
     if (myargv[p+1])
@@ -1541,7 +1546,7 @@ static void D_DoomMainSetup(void)
   lprintf(LO_INFO,"M_Init: Init miscellaneous info.\n");
   M_Init();
 
-#ifdef HAVE_NET
+#if (0)
   // CPhipps - now wait for netgame start
   D_CheckNetGame();
 #endif

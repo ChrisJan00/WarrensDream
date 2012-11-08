@@ -55,7 +55,7 @@
 #include <windows.h>
 #endif
 
-#include "SDL.h"
+#include "SDL/SDL.h"
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -74,22 +74,22 @@
 #include <errno.h>
 
 #ifndef PRBOOM_SERVER
-#include "m_argv.h"
+#include "../m_argv.h"
 #endif
-#include "lprintf.h"
-#include "doomtype.h"
-#include "doomdef.h"
-#include "lprintf.h"
+#include "../lprintf.h"
+#include "../doomtype.h"
+#include "../doomdef.h"
+#include "../lprintf.h"
 #ifndef PRBOOM_SERVER
-#include "m_fixed.h"
-#include "r_fps.h"
+#include "../m_fixed.h"
+#include "../r_fps.h"
 #endif
-#include "i_system.h"
+#include "../i_system.h"
 
 #ifdef __GNUG__
 #pragma implementation "i_system.h"
 #endif
-#include "i_system.h"
+#include "../i_system.h"
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -180,9 +180,9 @@ unsigned long I_GetRandomTimeSeed(void)
 const char* I_GetVersionString(char* buf, size_t sz)
 {
 #ifdef HAVE_SNPRINTF
-  snprintf(buf,sz,"%s v%s (http://chrisjangames.wordpress.com/)",PACKAGE,VERSION);
+  snprintf(buf,sz,"%s v%s (http://chrisjangames.wordpress.com/)","warrensdream","1.0");
 #else
-  sprintf(buf,"%s v%s (http://chrisjangames.wordpress.com/)",PACKAGE,VERSION);
+  sprintf(buf,"%s v%s (http://chrisjangames.wordpress.com/)","warrensdream","1.0");
 #endif
   return buf;
 }

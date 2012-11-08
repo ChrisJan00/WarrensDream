@@ -77,8 +77,8 @@ size_t strlcat(char *dst, const char *src, size_t maxlen)
 
 // proff - end of additions
 /* Include the SDL main definition header */
-#include "SDL.h"
-#include "SDL_main.h"
+#include "SDL/SDL.h"
+#include "SDL/SDL_main.h"
 
 #ifdef main
 # ifndef _WIN32_WCE_EMULATION

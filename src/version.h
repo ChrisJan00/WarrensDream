@@ -32,8 +32,8 @@
  *-----------------------------------------------------------------------------*/
 
 
-#ifndef __DOOMVERSION__
-#define __DOOMVERSION__
+#ifndef __DOOM"1.0"__
+#define __DOOM"1.0"__
 
 extern const char version_date[];
 

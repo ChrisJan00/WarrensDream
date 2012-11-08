@@ -42,24 +42,24 @@
 #include <unistd.h>
 #endif
 
-#include "SDL.h"
+#include "SDL/SDL.h"
 
-#include "m_argv.h"
-#include "doomstat.h"
-#include "doomdef.h"
-#include "doomtype.h"
-#include "v_video.h"
-#include "r_draw.h"
-#include "d_main.h"
-#include "d_event.h"
-#include "i_joy.h"
-#include "i_video.h"
-#include "z_zone.h"
-#include "s_sound.h"
-#include "sounds.h"
-#include "w_wad.h"
-#include "st_stuff.h"
-#include "lprintf.h"
+#include "../m_argv.h"
+#include "../doomstat.h"
+#include "../doomdef.h"
+#include "../doomtype.h"
+#include "../v_video.h"
+#include "../r_draw.h"
+#include "../d_main.h"
+#include "../d_event.h"
+#include "../i_joy.h"
+#include "../i_video.h"
+#include "../z_zone.h"
+#include "../s_sound.h"
+#include "../sounds.h"
+#include "../w_wad.h"
+#include "../st_stuff.h"
+#include "../lprintf.h"
 
 int gl_colorbuffer_bits=16;
 int gl_depthbuffer_bits=16;
@@ -576,9 +576,9 @@ void I_InitGraphics(void)
     I_UpdateVideoMode();
 
     /* Setup the window title */
-    strcpy(titlebuffer,PACKAGE);
+    strcpy(titlebuffer,"warrensdream");
     strcat(titlebuffer," ");
-    strcat(titlebuffer,VERSION);
+    strcat(titlebuffer,"1.0");
     SDL_WM_SetCaption(titlebuffer, titlebuffer);
 
     /* Initialize the input system */

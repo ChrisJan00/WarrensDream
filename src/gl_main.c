@@ -42,8 +42,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
-#include <SDL.h>
-#include <SDL_opengl.h>
+#include <SDL/SDL.h>
+#include <SDL/SDL_opengl.h>
 #include "doomtype.h"
 #include "w_wad.h"
 #include "m_argv.h"

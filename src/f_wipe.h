@@ -35,7 +35,7 @@
 #define __F_WIPE_H__
 
 /*
- * SCREEN WIPE PACKAGE
+ * SCREEN WIPE "warrensdream"
  */
 
 int wipe_ScreenWipe (int ticks);

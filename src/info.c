@@ -4868,7 +4868,7 @@ mobjinfo_t mobjinfo[NUMMOBJTYPES] = {
     MF_NOBLOCKMAP,  // flags
     S_NULL          // raisestate
   },
-#ifdef DOGS
+    #if(0)
   // Marine's best friend :)      // killough 7/19/98
   {   // MT_DOGS
     888,   // doomednum

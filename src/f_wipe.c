@@ -45,7 +45,7 @@
 #include "f_wipe.h"
 
 //
-// SCREEN WIPE PACKAGE
+// SCREEN WIPE "warrensdream"
 //
 
 // Parts re-written to support true-color video modes. Column-major

@@ -47,7 +47,7 @@
 #include <sys/wait.h>
 #endif
 
-#ifdef USE_SDL_NET
+#if (0)
  #include "SDL.h"
 #endif
 
@@ -86,11 +86,11 @@ static boolean isExtraDDisplay = false;
 
 static void D_QuitNetGame (void);
 
-#ifndef HAVE_NET
+#if (1)
 doomcom_t*      doomcom;
 #endif
 
-#ifdef HAVE_NET
+#if (0)
 void D_InitNetGame (void)
 {
   int i;
@@ -109,7 +109,7 @@ void D_InitNetGame (void)
     // Get game info from server
     packet_header_t *packet = Z_Malloc(1000, PU_STATIC, NULL);
     struct setup_packet_s *sinfo = (void*)(packet+1);
-  struct { packet_header_t head; short pn; } PACKEDATTR initpacket;
+  struct { packet_header_t head; short pn; }  initpacket;
 
     I_InitNetwork();
   udp_socket = I_Socket(0);
@@ -182,7 +182,7 @@ void D_InitNetGame (void)
 }
 #endif // HAVE_NET
 
-#ifdef HAVE_NET
+#if (0)
 void D_CheckNetGame(void)
 {
   packet_header_t *packet = Z_Malloc(sizeof(packet_header_t)+1, PU_STATIC, NULL);
@@ -384,7 +384,7 @@ void D_BuildNewTiccmds(void)
 }
 #endif
 
-#ifdef HAVE_NET
+#if (0)
 /* cph - data passed to this must be in the Doom (little-) endian */
 void D_NetSendMisc(netmisctype_t type, size_t len, void* data)
 {
@@ -461,7 +461,7 @@ void TryRunTics (void)
 
   // Wait for tics to run
   while (1) {
-#ifdef HAVE_NET
+#if (0)
     NetUpdate();
 #else
     D_BuildNewTiccmds();
@@ -469,7 +469,7 @@ void TryRunTics (void)
     runtics = (server ? remotetic : maketic) - gametic;
     if (!runtics) {
       if (!movement_smooth) {
-#ifdef HAVE_NET
+#if (0)
         if (server)
           I_WaitForPacket(ms_to_next_tick);
         else
@@ -477,7 +477,7 @@ void TryRunTics (void)
           I_uSleep(ms_to_next_tick*1000);
       }
       if (I_GetTime() - entertime > 10) {
-#ifdef HAVE_NET
+#if (0)
         if (server) {
           char buf[sizeof(packet_header_t)+1];
           remotesend--;
@@ -504,7 +504,7 @@ void TryRunTics (void)
   }
 
   while (runtics--) {
-#ifdef HAVE_NET
+#if (0)
     if (server) CheckQueuedPackets();
 #endif
     if (advancedemo)
@@ -514,13 +514,13 @@ void TryRunTics (void)
     G_Ticker ();
     P_Checksum(gametic);
     gametic++;
-#ifdef HAVE_NET
+#if (0)
     NetUpdate(); // Keep sending our tics to avoid stalling remote nodes
 #endif
   }
 }
 
-#ifdef HAVE_NET
+#if (0)
 static void D_QuitNetGame (void)
 {
   byte buf[1 + sizeof(packet_header_t)];
